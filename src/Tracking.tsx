@@ -85,9 +85,6 @@ class Tracking extends React.Component {
     console.log('[motionchange] -', event.isMoving, event.location);
   };
 
-  // 34.923908
-  // 138.390012
-
   render = () => {
     return (
       <View style={StyleSheet.absoluteFillObject}>
