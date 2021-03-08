@@ -15,6 +15,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* BackgroundTrackingAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BackgroundTrackingAppTests.m */; };
+		73793DCB25F5C3E500D50238 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		871A0946CC78400EA6DE5B28 /* libPods-BackgroundTrackingApp-BackgroundTrackingAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05AD3580D9ECE00D5171C3C5 /* libPods-BackgroundTrackingApp-BackgroundTrackingAppTests.a */; };
 		D9AE584B843C3D647EDA2B92 /* libPods-BackgroundTrackingApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 143714179977F3DBA0B5CDDB /* libPods-BackgroundTrackingApp-tvOS.a */; };
@@ -194,7 +195,6 @@
 				68B1AF7276DCE26D1C5DEBF8 /* Pods-BackgroundTrackingApp-tvOSTests.debug.xcconfig */,
 				396A5CEF784BC0161EA64D66 /* Pods-BackgroundTrackingApp-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -340,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73793DCB25F5C3E500D50238 /* main.jsbundle in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
