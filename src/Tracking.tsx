@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 import BackgroundGeolocation, {
   Location,
   LocationError,
@@ -9,11 +9,25 @@ import BackgroundGeolocation, {
   ProviderChangeEvent,
 } from 'react-native-background-geolocation';
 
+type State = {
+  locations: Location[];
+};
+
 /**
  * Tracking Component
  */
-class Tracking extends React.Component {
-  componentWillMount = () => {
+class Tracking extends React.Component<{}, State> {
+  constructor(props: {}) {
+    super(props);
+
+    this.state = {
+      locations: [],
+    };
+  }
+
+  componentDidMount = () => {
+    console.log('Tracking Component is Mounted...');
+
     // This handler fires whenever bgGeo receives a location update.
     BackgroundGeolocation.onLocation(this.onLocation, this.onError);
 
@@ -57,9 +71,9 @@ class Tracking extends React.Component {
     );
   };
 
-  componentDidMount = () => {
-    console.log('Tracking Component is Mounted...');
-  };
+  //   componentDidMount = () => {
+  //     console.log('Tracking Component is Mounted...');
+  //   };
 
   componentWillUnmount = () => {
     BackgroundGeolocation.removeListeners();
@@ -67,6 +81,9 @@ class Tracking extends React.Component {
 
   onLocation = (location: Location) => {
     console.log('[location] -', location);
+    this.setState({
+      locations: [...this.state.locations, location],
+    });
   };
 
   onError = (error: LocationError) => {
@@ -86,17 +103,29 @@ class Tracking extends React.Component {
   };
 
   render = () => {
+    const {locations} = this.state;
+    if (locations.length === 0) return null;
     return (
       <View style={StyleSheet.absoluteFillObject}>
         <MapView
           style={StyleSheet.absoluteFillObject}
           initialRegion={{
-            latitude: 34.923908,
-            longitude: 138.390012,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
-        />
+            latitude: 34.960017984220684,
+            longitude: 138.40492520422208,
+            latitudeDelta: 0.0461,
+            longitudeDelta: 0.0215,
+          }}>
+          {locations?.map((l: Location, i: number) => {
+            return (
+              <Marker
+                key={`marker_${i}`}
+                coordinate={{
+                  ...l.coords,
+                }}
+              />
+            );
+          })}
+        </MapView>
       </View>
     );
   };
